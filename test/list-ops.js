@@ -64,7 +64,7 @@ describe('SalesforceIQ List Operations', function() {
   });
 
   it('can get filtered items from a list', function(done) {
-    salesforceIQ.getListItems(listId, 'start=0&_limit=1', function(err, res) {
+    salesforceIQ.getListItems(listId, '_start=0&_limit=1', function(err, res) {
       assert.ifError(err);
       assert.equal(res.length > 0, true);
       done();
