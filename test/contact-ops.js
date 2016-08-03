@@ -8,7 +8,7 @@ var _ = require('lodash');
 var apiKey = process.env['SALESFORCEIQ_KEY'];
 var apiSecret = process.env['SALESFORCEIQ_SECRET'];
 
-describe('SalesforceIQ Contact Operations', function() {
+describe.skip('SalesforceIQ Contact Operations', function() {
   var salesforceIQ = new SalesforceIQ(apiKey, apiSecret);
   var companyName = 'Test - Sigma Software';
   var companyNameUpdated = 'Test - Sigma Software Updated';

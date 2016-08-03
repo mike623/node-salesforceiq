@@ -19,16 +19,19 @@
     "relateiq"
   ],
   "author": "Nick Caruso",
-  "contributors" : [{
-    "name": "Elana Bell Bogdan",
-    "email": "ellie@techchange.org"
-  }],
+  "contributors": [
+    {
+      "name": "Elana Bell Bogdan",
+      "email": "ellie@techchange.org"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Illumineto/node-salesforceiq/issues"
   },
   "homepage": "https://github.com/Illumineto/node-salesforceiq#readme",
   "dependencies": {
+    "async": "^2.0.1",
     "lodash": "^3.10.1",
     "request": "^2.65.0",
     "uid": "0.0.2"
@@ -36,6 +39,6 @@
   "devDependencies": {
     "coveralls": "^2.11.4",
     "istanbul": "^0.3.22",
-    "mocha": "^2.3.3"
+    "mocha": "^3.0.0"
   }
 }

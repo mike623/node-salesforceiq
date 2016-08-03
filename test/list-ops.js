@@ -7,8 +7,8 @@ var assert = require('assert');
 var uid = require('uid');
 var _ = require('lodash');
 
-var apiKey = process.env['SALESFORCEIQ_KEY'];
-var apiSecret = process.env['SALESFORCEIQ_SECRET'];
+var apiKey = process.env['relateIQ_APIKEY'];
+var apiSecret = process.env['relateIQ_APISECRET'];
 
 describe('SalesforceIQ List Operations', function() {
   var salesforceIQ = new SalesforceIQ(apiKey, apiSecret);
@@ -22,7 +22,7 @@ describe('SalesforceIQ List Operations', function() {
     }]
   };
 
-  var listId = null;
+  var listId = "5537571ae4b0293c8b764a70";
   var listItemId = null;
 
   it.skip('can create a list', function(done) {
@@ -44,7 +44,7 @@ describe('SalesforceIQ List Operations', function() {
     });
   });
 
-  it('can get a list by id', function(done) {
+  it.only('can get a list by id', function(done) {
     salesforceIQ.getList(listId, function(err, res) {
       assert.ifError(err);
       assert.notEqual(typeof res.id, 'undefined');
@@ -52,13 +52,17 @@ describe('SalesforceIQ List Operations', function() {
     });
   });
 
-  it('can get all items from a list', function(done) {
+  it.only('can get all items from a list', function(done) {
     salesforceIQ.getListItems(listId, '', function(err, res) {
       assert.ifError(err);
       assert.equal(res.length > 0, true);
-
+      res.forEach(function(item){
+        assert.ok(item.parsedListFields);
+      })
       // Store the list item id for later tests
       listItemId = res[0].id;
+
+
       done();
     });
   });
@@ -67,6 +71,7 @@ describe('SalesforceIQ List Operations', function() {
     salesforceIQ.getListItems(listId, '_start=0&_limit=1', function(err, res) {
       assert.ifError(err);
       assert.equal(res.length > 0, true);
+
       done();
     });
   });

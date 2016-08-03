@@ -7,7 +7,7 @@ var assert = require('assert');
 var apiKey = process.env['SALESFORCEIQ_KEY'];
 var apiSecret = process.env['SALESFORCEIQ_SECRET'];
 
-describe('SalesforceIQ Account Operations', function() {
+describe.skip('SalesforceIQ Account Operations', function() {
   var salesforceIQ = new SalesforceIQ(apiKey, apiSecret);
   var accountId = null;
   var companyName = 'Test - Sigma Software';

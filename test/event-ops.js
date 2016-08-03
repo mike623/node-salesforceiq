@@ -10,7 +10,7 @@ var _ = require('lodash');
 var apiKey = process.env['SALESFORCEIQ_KEY'];
 var apiSecret = process.env['SALESFORCEIQ_SECRET'];
 
-describe('SalesforceIQ Event Operations', function() {
+describe.skip('SalesforceIQ Event Operations', function() {
   var salesforceIQ = new SalesforceIQ(apiKey, apiSecret);
   var contactName = 'User Leslie';
   var contactEmail = 'leslie@test.sigmasofware.com';
