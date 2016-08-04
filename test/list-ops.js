@@ -59,8 +59,6 @@ describe('SalesforceIQ List Operations', function() {
       res.forEach(function(item){
         assert.ok(item.parsedListFields);
       })
-      // Store the list item id for later tests
-      listItemId = res[0].id;
       done();
     });
   });
@@ -74,10 +72,12 @@ describe('SalesforceIQ List Operations', function() {
     });
   });
 
-  it('can get a single item from a list', function(done) {
+  it.only('can get a single item from a list', function(done) {
     salesforceIQ.getListItem(listId, listItemId, function(err, res) {
       assert.ifError(err);
       assert.notEqual(typeof res.id, 'undefined');
+      assert.ok(res.parsedListFields);
+      console.log(res);
       done();
     });
   });
