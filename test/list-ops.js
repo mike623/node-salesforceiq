@@ -22,7 +22,7 @@ describe('SalesforceIQ List Operations', function() {
     }]
   };
 
-  var listId = "5537571ae4b0293c8b764a70";
+  var listId = null;
   var listItemId = null;
 
   it.skip('can create a list', function(done) {
@@ -61,8 +61,6 @@ describe('SalesforceIQ List Operations', function() {
       })
       // Store the list item id for later tests
       listItemId = res[0].id;
-
-
       done();
     });
   });
